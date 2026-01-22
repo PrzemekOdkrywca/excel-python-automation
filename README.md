@@ -63,6 +63,13 @@ Każde narzędzie w repozytorium:
 
 Repozytorium będzie rozwijane o kolejne przykłady automatyzacji.
 
+## 📂 Przykładowe automatyzacje
+
+Repozytorium będzie stopniowo uzupełniane o konkretne przypadki, m.in.:
+- automatyczna konwersja plików HTML / CSV do Excela,
+- czyszczenie i standaryzacja danych handlowych,
+- masowe operacje na plikach Excel,
+- proste narzędzia uruchamiane „na klik” przez użytkownika biznesowego.
 ---
 
 ## 👤 Autor

@@ -1,7 +1,10 @@
 """
-Gra Edukacyjna - Kolory i Angielski dla Przedszkolaków
-Dzieci razem głośno wypowiadają nazwę koloru który widzą na ekranie
-Color Learning Game - Children say the color name together out loud
+Gra Edukacyjna - Kolory i Angielski dla Początkujących
+Ta gra jest przeznaczona zarówno dla dzieci, jak i dla wszystkich początkujących uczących się angielskiego.
+Uczestnicy głośno wypowiadają nazwę koloru, który widzą na ekranie, po angielsku.
+Color Learning Game - For beginners and children learning English
+This game is designed for both children and anyone starting to learn English.
+Participants say the color name they see on the screen out loud, in English.
 """
 
 import tkinter as tk
@@ -71,16 +74,15 @@ class GraKolory:
         self.aktualny_kolor = None
         self.start()
 
-    def beep(self):
-        """Odtwarza dźwięk beep"""
-        try:
-            winsound.Beep(DZWIEK_HZ, DZWIEK_MS)
-        except Exception as e:
-            print(f"Błąd dźwięku: {e}")
+    def play_notes(self):
+        """Odtwarza trzy razy plik ding.wav przy zmianie koloru"""
+        import os
+        wav_path = os.path.join(os.path.dirname(__file__), "dynamic_chord.wav")
+        for _ in range(3):
             try:
-                winsound.MessageBeep(winsound.MB_OK)
-            except:
-                pass
+                winsound.PlaySound(wav_path, winsound.SND_FILENAME)
+            except Exception as e:
+                print(f"Błąd odtwarzania pliku wav: {e}")
 
     def start(self):
         """Rozpoczyna grę"""
@@ -117,8 +119,8 @@ class GraKolory:
         # Zaktualizuj instrukcję
         self.label_instrukcja.configure(bg=kolor, fg="gray" if kolor != "white" else "darkgray")
 
-        # Beep na początku
-        self.beep()
+        # Odtwórz trzy nuty przy zmianie koloru
+        self.play_notes()
 
         # Rozpocznij odliczanie po określonym czasie (CZAS_ZMIANY - 3 sekundy)
         self.root.after((CZAS_ZMIANY - 3) * 1000, lambda: self.odliczanie(3))
@@ -142,10 +144,7 @@ class GraKolory:
             fg=tekst_kolor
         )
 
-        # Beep przy każdej liczbie
-        self.beep()
-        
-        # Następna liczba po 1 sekundzie
+        # Następna liczba po 1 sekundzie (bez dźwięku)
         self.root.after(1000, lambda: self.odliczanie(liczba - 1))
 
     def zamknij(self):

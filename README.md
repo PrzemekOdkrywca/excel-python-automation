@@ -1,3 +1,39 @@
+
+# auto_fix_webxls.py
+
+Ten skrypt automatycznie naprawia pliki, które udają pliki Excela (np. pliki HTML zapisane jako .xls) i konwertuje je do prawdziwego formatu XLS (Excel 97–2003).
+
+## Co robi skrypt?
+- Skanuje bieżący folder (tam, gdzie znajduje się skrypt) i wyszukuje pliki:
+	- z rozszerzeniem: `.xls`, `.html`, `.htm`, `.web`
+	- bez rozszerzenia
+- Dla każdego pliku wykrywa jego format na podstawie nagłówka:
+	- OLE2  → prawdziwy XLS (pomijany, chyba że nie ma rozszerzenia .xls, wtedy tworzy kopię z tym rozszerzeniem)
+	- ZIP   → XLSX/ZIP (konwertuje do .xls)
+	- HTML  → strona WWW (konwertuje do .xls)
+	- CSV/tekst → konwertuje do .xls
+	- nieznany → próbuje konwersji przez Excel/LibreOffice/pandas
+- Kolejność prób konwersji: Excel COM → LibreOffice → pandas
+- Na końcu wypisuje podsumowanie konwersji.
+
+## Wymagania
+- Python 3.x
+- Biblioteki: `pandas`, `xlwt`, `win32com` (opcjonalnie), LibreOffice (opcjonalnie)
+
+## Uruchomienie
+1. Umieść skrypt w folderze z plikami do naprawy.
+2. Uruchom w terminalu:
+	 ```bash
+	 python auto_fix_webxls.py
+	 ```
+3. Skrypt utworzy prawdziwe pliki `.xls` w tym samym folderze.
+
+## Autor
+Chorten, 2026
+
+## Licencja
+MIT License
+
 # Excel + Python Automation
 
 Zestaw narzędzi do automatyzacji powtarzalnych zadań biznesowych z użyciem Excela i Pythona.

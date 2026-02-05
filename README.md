@@ -29,7 +29,7 @@ Ten skrypt automatycznie naprawia pliki, które udają pliki Excela (np. pliki H
 3. Skrypt utworzy prawdziwe pliki `.xls` w tym samym folderze.
 
 ## Autor
-Chorten, 2026
+OdkrywcaAI, 2026
 
 ## Licencja
 MIT License

@@ -63,6 +63,21 @@ Każde narzędzie w repozytorium:
 
 Repozytorium będzie rozwijane o kolejne przykłady automatyzacji.
 
+
+## 🎮 Color Learning Game – uruchamianie
+
+Aby uruchomić grę bez problemów z PowerShellem:
+
+1. Otwórz terminal cmd (nie PowerShell) i wpisz:
+	.\.venv\Scripts\activate.bat
+	python color_learning_game.py
+
+2. Lub bez aktywacji środowiska:
+	.\.venv\Scripts\python.exe color_learning_game.py
+
+Więcej szczegółów znajdziesz w pliku [README_GAME_URUCHOMIENIE.md](README_GAME_URUCHOMIENIE.md).
+
+---
 ## 📂 Przykładowe automatyzacje
 
 Repozytorium będzie stopniowo uzupełniane o konkretne przypadki, m.in.:
